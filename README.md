@@ -4,8 +4,10 @@ Process NANOAOD files to create skims (picoAODs) and event loop histograms.
 
 From a CMSSW/src release area
 
->cmsrel CMSSW_10_2_0
+>#(only do this once the first time) cmsrel CMSSW_10_2_0
+
 >cd CMSSW_10_2_0/src
+
 >cmsenv
 
 Checkout the nTupleAnalysis base class repo
