@@ -1,0 +1,13 @@
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_50_120/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_120_200/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#root://cmsxrootd-site.fnal.gov/
+root://cms-xrd-global.cern.ch//store/mc/RunIIAutumn18NanoAOD/ZToMuMu_NNPDF31_13TeV-powheg_M_120_200/NANOAODSIM/102X_upgrade2018_realistic_v15-v1/10000/DF27A824-7E87-C54C-8C47-32B979E6AFEB.root
+##/ZToMuMu_NNPDF31_13TeV-powheg_M_200_400/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_400_800/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_800_1400/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_1400_2300/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_2300_3500/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_3500_4500/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_4500_6000/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#/ZToMuMu_NNPDF31_13TeV-powheg_M_6000_Inf/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+
