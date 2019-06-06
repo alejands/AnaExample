@@ -45,24 +45,3 @@ ePFBTagDeepCSV_4p5_v*" --byls -o lumiMasks/brilcalc_2018_HLT_PFHT330PT30_QuadPFJ
 
 The output csv file can be quite large. For 2018 it is 30MB. This is because there is one line for every lumiblock and there are O(1M) lumiblocks in a dataset. The option --byls tells brilcalc to give the lumi split by lumiblock; the default is to only specify the lumi per run. 
 
-# Madgraph Studies
-
-Generate ZZ->4b events in madgraph
-
->cd madgraph
-
->mg
-
->launch mg5_ZZ4b
-
-Convert .lhe to .root (in command line from ZZ4b directory)
-
->gzip -d madgraph/mg5_ZZ4b/Events/run_01/unweighted_events.lhe.gz 
-
->ExRootLHEFConverter madgraph/mg5_ZZ4b/Events/run_01/unweighted_events.lhe madgraph/mg5_ZZ4b/Events/run_01/unweighted_events.root
-
-Process events
-
->py3 python/run.py -i madgraph/mg5_ZZ4b/Events/run_01/unweighted_events.root -o hists/mg5_ZZ4b_run_01.root
-
-
