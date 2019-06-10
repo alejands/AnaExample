@@ -14,7 +14,7 @@ Checkout the nTupleAnalysis base class repo
 
 >git clone git@github.com:patrickbryant/nTupleAnalysis.git
 
->scram b ZZ4b/nTupleAnalysis
+>scram b -j 5
 
 >voms-proxy-init -voms cms
 
