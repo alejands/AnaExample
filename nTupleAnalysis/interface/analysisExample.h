@@ -71,6 +71,8 @@ namespace nTupleAnalysis {
     struct rusage usage;
     long int usageMB;
 
+    nTupleAnalysis::muonHists* hMuon;
+
     analysisExample(TChain*, TChain*, TChain*, fwlite::TFileService&, bool, bool, std::string, int, bool);
     void createPicoAOD(std::string);
     void addDerivedQuantitiesToPicoAOD();

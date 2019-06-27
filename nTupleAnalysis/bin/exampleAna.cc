@@ -24,7 +24,7 @@ int main(int argc, char * argv[]){
   // load framework libraries
   gSystem->Load( "libFWCoreFWLite" );
   FWLiteEnabler::enable();
-  
+
   // parse arguments
   if ( argc < 2 ) {
     std::cout << "Usage : " << argv[0] << " [parameters.py]" << std::endl;
@@ -38,8 +38,11 @@ int main(int argc, char * argv[]){
   //std::shared_ptr<edm::ParameterSet> config = edm::readConfig(argv[1], argc, argv);
   //const edm::ParameterSet& process    = config->getParameter<edm::ParameterSet>("process");
 
+
   const edm::ParameterSet& parameters = process.getParameter<edm::ParameterSet>("exampleAna");
   bool debug = parameters.getParameter<bool>("debug");
+  if(debug) std::cout << " In main " << std::endl;
+
   bool isMC  = parameters.getParameter<bool>("isMC");
   bool blind = parameters.getParameter<bool>("blind");
   int histogramming = parameters.getParameter<int>("histogramming");
@@ -48,6 +51,7 @@ int main(int argc, char * argv[]){
   std::string year = parameters.getParameter<std::string>("year");
 
   //lumiMask
+  if(debug) std::cout << "Loading lumiMask " << std::endl;
   const edm::ParameterSet& inputs = process.getParameter<edm::ParameterSet>("inputs");   
   std::vector<edm::LuminosityBlockRange> lumiMask;
   if( !isMC && inputs.exists("lumisToProcess") ){

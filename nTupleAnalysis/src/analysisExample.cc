@@ -39,6 +39,8 @@ analysisExample::analysisExample(TChain* _events, TChain* _runs, TChain* _lumiBl
   event      = new eventData(events, isMC, year, debug);
   treeEvents = events->GetEntries();
 
+  hMuon = new nTupleAnalysis::muonHists("isoMuons", fs);
+
   // hists
   if(histogramming >= 0) allEvents     = new eventHists("allEvents",     fs);
 } 
@@ -151,14 +153,17 @@ int analysisExample::processEvent(){
   // 
   
   // Muon multiplicity 
-  bool muonMultiplicity = (event->selJets.size() >= 4);
-  ////bool jetMultiplicity = (event->selJets.size() == 4);
-  //if(!jetMultiplicity){
-  //  if(debug) std::cout << "Fail Jet Multiplicity" << std::endl;
-  //  //event->dump();
-  //  return 0;
-  //}
+  bool muonMultiplicity = (event->isoMuons.size() >= 2);
+  if(!muonMultiplicity){
+    if(debug) std::cout << "Fail Muon Multiplicity" << std::endl;
+    return 0;
+  }
   //cutflow->Fill(event, "jetMultiplicity", true);
+
+  for(const muonPtr& muon : event->isoMuons){
+    hMuon->Fill(muon, event->weight);
+  }
+
 
   // TO DO Make minimum mass cut 
 
