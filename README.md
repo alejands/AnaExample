@@ -12,7 +12,7 @@ From a CMSSW/src release area
 
 Checkout the nTupleAnalysis base class repo
 
->git clone git@github.com:patrickbryant/nTupleAnalysis.git
+>git clone git@github.com:johnalison/nTupleAnalysis.git
 
 >scram b -j 5
 
