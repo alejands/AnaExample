@@ -16,7 +16,7 @@ Checkout the nTupleAnalysis base class repo
 
 Checkout the AnaExample repo
 
->git@github.com:johnalison/AnaExample.git
+>git clone git@github.com:johnalison/AnaExample.git
 
 >scram b -j 5
 
