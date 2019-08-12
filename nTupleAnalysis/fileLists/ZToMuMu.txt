@@ -1,4 +1,5 @@
 #/ZToMuMu_NNPDF31_13TeV-powheg_M_50_120/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
+#root://cms-xrd-global.cern.ch//store/mc/RunIIAutumn18NanoAOD/ZToMuMu_NNPDF31_13TeV-powheg_M_50_120/NANOAODSIM/102X_upgrade2018_realistic_v15-v1/80000/4DF5CD1A-A7D9-0442-A616-04693221FC35.root 
 #/ZToMuMu_NNPDF31_13TeV-powheg_M_120_200/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15-v1/NANOAODSIM
 #root://cmsxrootd-site.fnal.gov/
 #root://cms-xrd-global.cern.ch//store/mc/RunIIAutumn18NanoAOD/ZToMuMu_NNPDF31_13TeV-powheg_M_120_200/NANOAODSIM/102X_upgrade2018_realistic_v15-v1/10000/DF27A824-7E87-C54C-8C47-32B979E6AFEB.root
