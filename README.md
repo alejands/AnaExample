@@ -14,6 +14,10 @@ Checkout the nTupleAnalysis base class repo
 
 >git clone git@github.com:johnalison/nTupleAnalysis.git
 
+Checkout the TriggerEmulator
+
+>git@github.com:johnalison/TriggerEmulator.git
+
 Checkout the AnaExample repo
 
 >git clone git@github.com:johnalison/AnaExample.git
