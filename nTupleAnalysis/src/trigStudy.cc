@@ -65,7 +65,6 @@ trigStudy::trigStudy(TChain* _events, TChain* _runs, TChain* _lumiBlocks, fwlite
   //
   for(std::string trigName : event->HLT_PFHT_Names){
     passTrig->AddCut(trigName);
-    trigCounts.insert(std::make_pair(trigName,trigCounter()));
   }
 
   //
@@ -73,7 +72,6 @@ trigStudy::trigStudy(TChain* _events, TChain* _runs, TChain* _lumiBlocks, fwlite
   //
   for(std::string trigName : event->HLT_PFJet_Names){
     passTrig->AddCut(trigName);
-    trigCounts.insert(std::make_pair(trigName,trigCounter()));
   }
 
   //
@@ -115,6 +113,23 @@ trigStudy::trigStudy(TChain* _events, TChain* _runs, TChain* _lumiBlocks, fwlite
   trigEmulator_PF80->AddTrig("EMU_QuadPFJet103_88_75_15", {"105","90","75","15"}, {1,2,3,4} );
   trigEmulator_PF80->AddTrig("EMU_QuadPFJet105_88_76_15", {"105","90","75","15"}, {1,2,3,4} );
   trigEmulator_PF80->AddTrig("EMU_QuadPFJet110_90_80_15", {"110","90","80","15"}, {1,2,3,4} );
+
+
+  trigEmulator_PFHT180 = new TriggerEmulator::TrigEmulatorTool("trigEmulator_PFHT180");
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT180",  "180",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT250",  "250",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT370",  "370",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT430",  "430",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT510",  "510",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT590",  "590",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT680",  "680",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT780",  "780",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT890",  "890",  {}, {} );
+  trigEmulator_PFHT180->AddTrig("EMU_PFHT1050", "1050", {}, {} );
+
+  //trigEmulator_PF80->AddTrig("EMU_QuadPFJet105_88_76_15", {"105","90","75","15"}, {1,2,3,4} );
+  //trigEmulator_PF80->AddTrig("EMU_QuadPFJet110_90_80_15", {"110","90","80","15"}, {1,2,3,4} );
+
 
   //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet103_88_75_15",new trigEmulator("EMU_QuadPFJet103_88_75_15", "HLT_PFJet80", {PFJet["105"],PFJet["90"],PFJet["75"],PFJet["15"]}, {1,2,3,4} )));
   //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet103_88_75_15",new trigEmulator("EMU_QuadPFJet103_88_75_15", "HLT_PFJet80", {PFJet["105"],PFJet["90"],PFJet["75"],PFJet["15"]}, {1,2,3,4} )));
@@ -196,42 +211,11 @@ int trigStudy::eventLoop(int maxEvents){
 
   }
 
-  //
-  //  PFJet Triggers
-  //
-  for(std::string trigName : event->HLT_PFJet_Names){
-    std::cout << "\n\n" << trigName << ":"<< std::endl;
-    trigCounts[trigName].dumpPFJet();
-
-  }
-
-  unsigned int iTrig = 0;
-  for(std::string trigName : event->HLT_PFJet_Names){
-    std::cout << "PFJet_effFrom[\"" << trigName << "\"] = (" << iTrig << ",";
-    trigCounts[trigName].dumpEffPFJet();
-
-    ++iTrig;
-  }
-
-
-  //
-  //  PFJet Triggers
-  //
-  for(std::string trigName : event->HLT_PFHT_Names){
-    std::cout << "\n\n" << trigName << ":"<< std::endl;
-    trigCounts[trigName].dumpPFHT();
-  }
-
-  unsigned int iTrigHT = 0;
-  for(std::string trigName : event->HLT_PFHT_Names){
-    std::cout << "PFHT_effFrom[\"" << trigName << "\"] = (" << iTrigHT << ",";
-    trigCounts[trigName].dumpEffPFHT();
-
-    ++iTrigHT;
-  }
 
   trigEmulator_PF40->dumpResults();
-  trigEmulator_PF80->dumpResults();
+  trigEmulator_PF80->dumpResults();  
+  trigEmulator_PFHT180->dumpResults();
+
 
 
   std::cout << std::endl;
@@ -286,7 +270,6 @@ int trigStudy::processEvent(){
   for(std::string trigName : event->HLT_PFHT_Names){
     if(event->HLT_PFHT_Results[trigName]){
       passTrig->Fill(trigName,event->weight);
-      trigCounts[trigName].Fill(event);
     }
   }
 
@@ -296,7 +279,6 @@ int trigStudy::processEvent(){
   for(std::string trigName : event->HLT_PFJet_Names){
     if(event->HLT_PFJet_Results[trigName]){
       passTrig->Fill(trigName,event->weight);
-      trigCounts[trigName].Fill(event);
     }
   }
 
@@ -326,6 +308,10 @@ int trigStudy::processEvent(){
 
   if(event->HLT_PFJet_Results["HLT_PFJet80"])
     trigEmulator_PF80->Fill(event->allJets);
+
+  if(event->HLT_PFHT_Results["HLT_PFHT180"])
+    trigEmulator_PFHT180->Fill({}, event->ht);
+
 
 
   bool dumpEvents = false;
