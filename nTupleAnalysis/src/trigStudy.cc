@@ -97,37 +97,30 @@ trigStudy::trigStudy(TChain* _events, TChain* _runs, TChain* _lumiBlocks, fwlite
   //
   //  For testing
   // 
-  //  All seeded from PFJet_40
-  trigEmulator = new TriggerEmulator::TrigEmulatorTool("trigEmulator");
-  //trigEmulator->AddTrig("EMU_PFJet60",   {"60"},  {1} );
-  //trigEmulator->AddTrig("EMU_PFJet80",   {"80"},  {1} );
-  //trigEmulator->AddTrig("EMU_PFJet140",  {"140"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet60",   {"60" }, {1} );
-  trigEmulator->AddTrig("EMU_PFJet80",   {"80" }, {1} );
-  trigEmulator->AddTrig("EMU_PFJet140",  {"140"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet200",  {"200"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet260",  {"260"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet320",  {"320"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet400",  {"400"}, {1} );
-  trigEmulator->AddTrig("EMU_PFJet450",  {"450"}, {1} );
-
-
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet60", new trigEmulator("EMU_PFJet60",  "HLT_PFJet40", {PFJet["60"] }, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet80", new trigEmulator("EMU_PFJet80",  "HLT_PFJet40", {PFJet["80"] }, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet140",new trigEmulator("EMU_PFJet140", "HLT_PFJet40", {PFJet["140"]}, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet200",new trigEmulator("EMU_PFJet200", "HLT_PFJet40", {PFJet["200"]}, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet260",new trigEmulator("EMU_PFJet260", "HLT_PFJet40", {PFJet["260"]}, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet320",new trigEmulator("EMU_PFJet320", "HLT_PFJet40", {PFJet["320"]}, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet400",new trigEmulator("EMU_PFJet400", "HLT_PFJet40", {PFJet["400"]}, {1} )));
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet450",new trigEmulator("EMU_PFJet450", "HLT_PFJet40", {PFJet["450"]}, {1} )));
+  //  All seeded from: HLT_PFJet40
+  trigEmulator_PF40 = new TriggerEmulator::TrigEmulatorTool("trigEmulator_PF40");
+  trigEmulator_PF40->AddTrig("EMU_PFJet60",   {"60" }, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet80",   {"80" }, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet140",  {"140"}, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet200",  {"200"}, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet260",  {"260"}, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet320",  {"320"}, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet400",  {"400"}, {1} );
+  trigEmulator_PF40->AddTrig("EMU_PFJet450",  {"450"}, {1} );
 
   //
   // Emulation  of quad triggers
-  //
-  //emulatedTrigMenu.insert(std::make_pair("EMU_PFJet450",new trigEmulator("EMU_PFJet450", "HLT_PFJet40", {PFJet["450"]}, {1} )));
+  //   All seeded from "HLT_PFJet80"
+  trigEmulator_PF80 = new TriggerEmulator::TrigEmulatorTool("trigEmulator_PF80");
+  trigEmulator_PF80->AddTrig("EMU_QuadPFJet103_88_75_15", {"105","90","75","15"}, {1,2,3,4} );
+  trigEmulator_PF80->AddTrig("EMU_QuadPFJet105_88_76_15", {"105","90","75","15"}, {1,2,3,4} );
+  trigEmulator_PF80->AddTrig("EMU_QuadPFJet110_90_80_15", {"110","90","80","15"}, {1,2,3,4} );
+
+  //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet103_88_75_15",new trigEmulator("EMU_QuadPFJet103_88_75_15", "HLT_PFJet80", {PFJet["105"],PFJet["90"],PFJet["75"],PFJet["15"]}, {1,2,3,4} )));
   //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet103_88_75_15",new trigEmulator("EMU_QuadPFJet103_88_75_15", "HLT_PFJet80", {PFJet["105"],PFJet["90"],PFJet["75"],PFJet["15"]}, {1,2,3,4} )));
   //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet105_88_76_15",new trigEmulator("EMU_QuadPFJet105_88_76_15", "HLT_PFJet80", {PFJet["105"],PFJet["90"],PFJet["75"],PFJet["15"]}, {1,2,3,4} )));
   //emulatedTrigMenu.insert(std::make_pair("EMU_QuadPFJet110_90_80_15",new trigEmulator("EMU_QuadPFJet110_90_80_15", "HLT_PFJet80", {PFJet["110"],PFJet["90"],PFJet["80"],PFJet["15"]}, {1,2,3,4} )));
+
 
 
 //    HLT_QuadPFJet111_90_80_15 rate 0.509 PS= 512.1 HLT unprescaled rate 260.652 L1_PS 1.0 unprescaled rate 260.659
@@ -237,7 +230,8 @@ int trigStudy::eventLoop(int maxEvents){
     ++iTrigHT;
   }
 
-  trigEmulator->dumpResults();
+  trigEmulator_PF40->dumpResults();
+  trigEmulator_PF80->dumpResults();
 
 
   std::cout << std::endl;
@@ -328,7 +322,11 @@ int trigStudy::processEvent(){
   // Do the emulation
   //
   if(event->HLT_PFJet_Results["HLT_PFJet40"])
-    trigEmulator->Fill(event->allJets);
+    trigEmulator_PF40->Fill(event->allJets);
+
+  if(event->HLT_PFJet_Results["HLT_PFJet80"])
+    trigEmulator_PF80->Fill(event->allJets);
+
 
   bool dumpEvents = false;
 

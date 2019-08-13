@@ -252,7 +252,8 @@ namespace nTupleAnalysis {
     //
     //  The Trigger Emulation
     // 
-    TriggerEmulator::TrigEmulatorTool* trigEmulator;
+    TriggerEmulator::TrigEmulatorTool* trigEmulator_PF40;
+    TriggerEmulator::TrigEmulatorTool* trigEmulator_PF80;
 
   };// trigStudy
 
