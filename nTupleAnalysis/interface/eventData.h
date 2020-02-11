@@ -46,7 +46,7 @@ namespace nTupleAnalysis {
     // HT Triggers
     //
     std::vector<std::string> HLT_PFHT_Names = {//"HLT_PFHT125" , "HLT_PFHT200", "HLT_PFHT300", "HLT_PFHT400","HLT_PFHT475", "HLT_PFHT600", "HLT_PFHT650", "HLT_PFHT800",
-					       "HLT_PFHT180", "HLT_PFHT250", 
+					       "HLT_PFHT180", "HLT_PFHT250",
 					       //"HLT_PFHT350", //"HLT_PFHT350MinPFJet15", 
 					       "HLT_PFHT370",
 					        "HLT_PFHT430",  "HLT_PFHT510",

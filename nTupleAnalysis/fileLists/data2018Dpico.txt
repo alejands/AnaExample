@@ -1,0 +1,3 @@
+#root://cmsxrootd-site.fnal.gov//store/user/jda102/AnalysisExample/trigStudyAna/data2018D/picoAOD.root 
+root://cmseos.fnal.gov//store/user/jda102/AnalysisExample/trigStudyAna/data2018D/picoAOD.root 
+#/store/user/jda102/ZToMuMu_NNPDF31_13TeV-powheg_M_120_200_NANOAODSIM_102X_upgrade2018_realistic_v15-v1_10000_DF27A824-7E87-C54C-8C47-32B979E6AFEB.root
