@@ -303,14 +303,14 @@ int trigStudy::processEvent(){
   //
   // Do the emulation
   //
-  if(event->HLT_PFJet_Results["HLT_PFJet40"])
-    trigEmulator_PF40->Fill(event->allJets);
+  //if(event->HLT_PFJet_Results["HLT_PFJet40"])
+  //  trigEmulator_PF40->Fill(event->allJets);
 
-  if(event->HLT_PFJet_Results["HLT_PFJet80"])
-    trigEmulator_PF80->Fill(event->allJets);
+  //if(event->HLT_PFJet_Results["HLT_PFJet80"])
+  //  trigEmulator_PF80->Fill(event->allJets);
 
-  if(event->HLT_PFHT_Results["HLT_PFHT180"])
-    trigEmulator_PFHT180->Fill({}, event->ht);
+  //if(event->HLT_PFHT_Results["HLT_PFHT180"])
+  //  trigEmulator_PFHT180->Fill({}, event->ht);
 
 
 
